@@ -1,6 +1,8 @@
 //import checkNumInputs from './checkNumInputs';
 
-import { isConcatSpreadable } from "core-js/fn/symbol";
+//import { isConcatSpreadable } from "core-js/fn/symbol";
+
+import {postData} from '../services/requests';
 
 const forms = () => {
   //получаем элементы которые нам понадобятся 

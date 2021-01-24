@@ -50,7 +50,7 @@ const sliders = (slides, dir, prev, next) => {
       items[slideIndex - 1].classList.add('slideInLeft');
     });
   } catch (error) {
-    console.log(error);
+    console.log();
   }
 
   //function for turn off tiggle slides if mouseenter
