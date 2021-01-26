@@ -17,6 +17,7 @@ const showMoreStyles = (trigger, wrapper) => {
   // });
 
   btn.addEventListener('click', function () {
+    //get json object from the function getResource we create at the first line
     getResource('assets/db.json')
       .then(res => createCards(res.styles))
       .catch(error => console.log(error));
@@ -43,12 +44,6 @@ const showMoreStyles = (trigger, wrapper) => {
     });    
   }
 
-  // <div class="hidden-lg hidden-md hidden-sm hidden-xs styles-2">
-  // <div class=styles-block>
-  //   <img src=assets/img/styles-5.jpg alt>
-  //   <h4>Пастелью</h4>
-  //   <a href="#">Подробнее</a>
-  // </div>
   
 };
 
