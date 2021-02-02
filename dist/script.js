@@ -4410,6 +4410,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/filter */ "./src/js/modules/filter.js");
 /* harmony import */ var _modules_pictureSize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/pictureSize */ "./src/js/modules/pictureSize.js");
+/* harmony import */ var _modules_accordeon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/accordeon */ "./src/js/modules/accordeon.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/scrolling */ "./src/js/modules/scrolling.js");
+/* harmony import */ var _modules_drop__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/drop */ "./src/js/modules/drop.js");
+
+
+
+
 
 
 
@@ -4433,7 +4441,88 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
   Object(_modules_filter__WEBPACK_IMPORTED_MODULE_7__["default"])();
   Object(_modules_pictureSize__WEBPACK_IMPORTED_MODULE_8__["default"])('.sizes-block');
+  Object(_modules_accordeon__WEBPACK_IMPORTED_MODULE_9__["default"])('.accordion-heading', '.accordion-block');
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_10__["default"])('.burger-menu', '.burger');
+  Object(_modules_scrolling__WEBPACK_IMPORTED_MODULE_11__["default"])('.pageup');
+  Object(_modules_drop__WEBPACK_IMPORTED_MODULE_12__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/accordeon.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/accordeon.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var accordeon = function accordeon(triggersSelector, itemsSelector) {
+  var btns = document.querySelectorAll(triggersSelector); //blocks = document.querySelectorAll(itemsSelector);
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      this.classList.toggle('active-style');
+      this.nextElementSibling.classList.toggle('active-content');
+
+      if (this.classList.contains('active-style')) {
+        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 80 + "px";
+      } else {
+        this.nextElementSibling.style.maxHeight = '0';
+      }
+    });
+  }); //   blocks.forEach(block => {
+  //     block.classList.add('animated', 'fadeInDown');
+  //   });
+  //   btns.forEach(btn => {
+  //     btn.addEventListener('click', function () {
+  //       if (!this.classList.contains('active')) {
+  //         btns.forEach(btn => {
+  //           btn.classList.remove('active', 'active-style');
+  //         });
+  //         this.classList.add('active', 'active-style');
+  //       }
+  //   });
+  // });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (accordeon);
+
+/***/ }),
+
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var burger = function burger(menuSelector, burgerSelector) {
+  var menuElem = document.querySelector(menuSelector),
+      burgerElem = document.querySelector(burgerSelector);
+  menuElem.style.display = 'none';
+  burgerElem.addEventListener('click', function () {
+    if (menuElem.style.display == 'none' && window.screen.availWidth < 993) {
+      menuElem.style.display = 'block';
+    } else {
+      menuElem.style.display = 'none';
+    }
+  });
+  window.addEventListener('resize', function () {
+    if (window.screen.availWidth > 992) {
+      menuElem.style.display = 'none';
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (burger);
 
 /***/ }),
 
@@ -4508,6 +4597,86 @@ var checkTextInputs = function checkTextInputs(selector) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (checkTextInputs);
+
+/***/ }),
+
+/***/ "./src/js/modules/drop.js":
+/*!********************************!*\
+  !*** ./src/js/modules/drop.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.split */ "./node_modules/core-js/modules/es.string.split.js");
+/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var drop = function drop() {
+  // drag *
+  // dragged *
+  // dragenter - объект над dropArea
+  // dragexit *
+  // dragleave - объект за пределами dropArea
+  // dragover - объект зависает над dropArea
+  // dragsstart *
+  // drop - объект отправлен в dropArea
+  var fileInputs = document.querySelectorAll('[name="upload"]');
+  ['dragenter', 'dragleave', 'dragover', 'drop'].forEach(function (eventName) {
+    fileInputs.forEach(function (input) {
+      input.addEventListener(eventName, preventDefaults, false);
+    });
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  function highlight(item) {
+    item.closest('.file_upload').style.border = "5px solid yellow";
+    item.closest('.file_upload').style.backgoundColor = "rgba(0,0,0, .7)";
+  }
+
+  function unhighlight(item) {
+    item.closest('.file_upload').style.border = "none";
+    item.closest('.file_upload').style.backgroundColor = "transparent";
+  }
+
+  ['dragenter', 'dragover'].forEach(function (eventName) {
+    fileInputs.forEach(function (input) {
+      input.addEventListener(eventName, function () {
+        return highlight(input);
+      }, false);
+    });
+  });
+  ['dragleave', 'drop'].forEach(function (eventName) {
+    fileInputs.forEach(function (input) {
+      input.addEventListener(eventName, function () {
+        return unhighlight(input);
+      }, false);
+    });
+  });
+  fileInputs.forEach(function (input) {
+    input.addEventListener('drop', function (e) {
+      input.files = e.dataTransfer.files;
+      var dots;
+      var arr = input.files[0].name.split('.');
+      arr[0].length > 5 ? dots = "..." : dots = ".";
+      var name = arr[0].substring(0, 6) + dots + arr[1];
+      input.previousElementSibling.textContent = name;
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (drop);
 
 /***/ }),
 
@@ -5032,6 +5201,170 @@ var pictureSize = function pictureSize(imgSelector) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (pictureSize);
+
+/***/ }),
+
+/***/ "./src/js/modules/scrolling.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/scrolling.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var scrolling = function scrolling(upSelector) {
+  var upElem = document.querySelector(upSelector); //elem for an arrow we seen on the page
+
+  window.addEventListener('scroll', function () {
+    if (document.documentElement.scrollTop > 1650) {
+      upElem.classList.add('animated', 'fadeIn');
+      upElem.classList.remove('fadeOut');
+    } else {
+      upElem.classList.add('fadeOut');
+      upElem.classList.remove('fadeIn');
+    }
+  });
+
+  function alternative2() {
+    //find all links from # (local links)
+    var links = document.querySelectorAll('[href^="#"]'),
+        //speed to scroll
+    speed = 0.2; //forEach for querySelectorAll
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault(); //find out where we should scroll the document
+
+        var widthTop = document.documentElement.scrollTop,
+            //get hash (for instance #up)
+        hash = this.hash,
+            //where are we should scroll. getBoundingClientRect - to find out the coordinates the elem we should scroll
+        toBlock = document.querySelector(hash).getBoundingClientRect().top,
+            //start position
+        start = null; //start requestAnimationFrame
+
+        requestAnimationFrame(step);
+
+        function step(time) {
+          //Have the animation been launched yet?
+          if (start === null) {
+            start = time;
+          }
+
+          var progress = time - start,
+              //widthTop - progress / speed : widthTop - how much the user scrolled, divide by speed
+          //withTop + toBlock
+          //else we make in another way
+          r = toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock); //scrollTo. We scroll our page to the coordinats 
+
+          document.documentElement.scrollTo(0, r); //when the animatin should stop
+
+          if (r != widthTop + toBlock) {
+            requestAnimationFrame(step);
+          } else {
+            //after it was stopped we set our hash. For example #up
+            location.hash = hash;
+          }
+        }
+      });
+    });
+  }
+
+  function alternative() {
+    //get all html structure
+    var element = document.documentElement,
+        //get body
+    body = document.body; //how much to scroll through. How to do it
+
+    var calcScroll = function calcScroll() {
+      //click to upElem. This is an arrow
+      upElem.addEventListener('click', function (event) {
+        //body.scrollTop is exists or element.srolltop
+        //we use srollTop to find out how many we should scroll to top
+        var scrollTop = Math.round(body.scrollTop || element.scrollTop); //hash is not empty
+
+        if (this.hash !== '') {
+          event.preventDefault(); //we should get an element we should scroll to
+
+          var hashElement = document.getElementById(this.hash.substring(1)),
+              //how many we should scroll to parent the hash element
+          hashElementTop = 0; //get parent of the element. Set the elem relative to which will position hashElement. Kinda his parent
+          //while it exists
+
+          while (hashElement.offsetParent) {
+            hashElementTop += hashElement.offsetTop;
+            hashElement = hashElement.offsetParent;
+          } //the result could be fractional so we use Math.round
+
+
+          hashElementTop = Math.round(hashElementTop); //scrollTop - how many we should scroll
+          //hashElementTop - we should know how many pixels to parent 
+          //(it'll be 0 in this case). You could create div.height 50px and it will be 50px
+          //this.hash - to find out where we are going
+          //The smoothScroll function helps us to scroll with an animation
+
+          smoothScroll(scrollTop, hashElementTop, this.hash);
+        }
+      });
+    }; //to create smooth scroll
+    //from - where are we start
+    //to - where are we going
+    //hash - out hash (fo instance #up)
+
+
+    var smoothScroll = function smoothScroll(from, to, hash) {
+      //time
+      var timeInterval = 1,
+          prevScrollTop,
+          //how fast
+      speed; //where are we going? Up or down
+
+      if (to > from) {
+        speed = 30;
+      } else {
+        speed = -30;
+      } //create an animation
+      //setInterval
+
+
+      var move = setInterval(function () {
+        //body.scrollTop is exists or element.srolltop
+        //we use srollTop to find out how many we should scroll to top
+        var scrollTop = Math.round(body.scrollTop || element.scrollTop); //
+
+        if ( //we cannot go to anywhere. Those three can guarantee us that we have reached the target
+        prevScrollTop === scrollTop || to > from && scrollTop >= to || to > from && scrollTop <= to) {
+          //in this case we should clear interval
+          clearInterval(move); //work with adress bar. history.state & document title are necessary variables
+          //location.href.replace use to change our adress bar to set the id we got. (it was e.preventDefault)
+
+          history.replaceState(history.state, document.title, location.href.replace(/#.*$/g, '') + hash);
+        } else {
+          //create scrollTop
+          body.scrollTop += speed;
+          element.scrollTop += speed; //to find out change the value
+
+          prevScrollTop = scrollTop;
+        }
+      }, timeInterval);
+    }; //use calc scroll
+
+
+    calcScroll();
+  }
+
+  alternative2();
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (scrolling);
 
 /***/ }),
 
